@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ScalaCompilerConfiguration">
+    <option name="separateProdTestSources" value="true" />
+    <profile name="sbt 1" modules="safe-separator-decomposition,safe-separator-decomposition.main,safe-separator-decomposition.test" />
+  </component>
+</project>
