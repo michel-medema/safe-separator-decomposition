@@ -30,6 +30,9 @@ RUN $JAVA_HOME/bin/jlink \
 
 FROM mono:6.12 AS bztreewidth
 
+# Update repository configuration, since the Mono image relies on an old Debian distribution.
+RUN echo "deb http://archive.debian.org/debian buster main" > /etc/apt/sources.list
+
 # Install Git for cloning the GitHub repository that contains the source files.
 # Make is used to compile the source code.
 # G++ is used by the Makefile to compile a test script.
