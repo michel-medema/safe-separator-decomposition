@@ -17,10 +17,8 @@ lazy val root = (project in file("."))
       "org.typelevel" %% "cats-core" % "2.13.0"
     ),
     assembly / assemblyMergeStrategy := {
+      case PathList("META-INF", _*) => MergeStrategy.discard
       case "module-info.class" => MergeStrategy.discard
-      case "logback.xml" => MergeStrategy.last
-      case s if s.endsWith(".conf.template") => MergeStrategy.discard
-      case s if s.endsWith(".conf") => MergeStrategy.discard
       case x =>
         val oldStrategy = (assembly / assemblyMergeStrategy).value
         oldStrategy(x)
