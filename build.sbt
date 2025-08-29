@@ -16,8 +16,13 @@ lazy val root = (project in file("."))
       "com.typesafe.play" %% "play-json" % "2.10.7",
       "org.typelevel" %% "cats-core" % "2.13.0"
     ),
+    assembly / mainClass := Some( "nl.rug.ds.experiments.safe.separators.main.Main" ),
     assembly / assemblyMergeStrategy := {
-      case PathList("META-INF", _*) => MergeStrategy.discard
+      case PathList("META-INF", xs@_*) =>
+        xs map {_.toLowerCase} match {
+          case "services" :: xs => MergeStrategy.filterDistinctLines
+          case _ => MergeStrategy.discard
+        }
       case "module-info.class" => MergeStrategy.discard
       case x =>
         val oldStrategy = (assembly / assemblyMergeStrategy).value

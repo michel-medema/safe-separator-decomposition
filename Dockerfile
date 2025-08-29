@@ -82,4 +82,4 @@ RUN chmod +x bztreewidth.sh
 # Copy the executables of BZTreewidth.
 COPY --from=bztreewidth /usr/local/src/BZTreewidth-bfbf736a98eea412c7ba2de4a21280816d9b8bbb/bin .
 
-ENTRYPOINT ["java", "-Xmx5500m", "-cp", "/usr/local/bin/safe-separator-decomposition-assembly-0.1.0-SNAPSHOT.jar", "nl.rug.ds.experiments.safe.separators.main.Main"]
+ENTRYPOINT ["java", "-Xmx5500m", "--sun-misc-unsafe-memory-access=allow", "-cp", "/usr/local/bin/safe-separator-decomposition-assembly-0.1.0-SNAPSHOT.jar", "nl.rug.ds.experiments.safe.separators.main.Main"]
