@@ -1,12 +1,11 @@
 package nl.rug.ds.experiments.safe.separators.triangulation
 
-import nl.rug.ds.common.FileHelper
 import nl.rug.ds.graph.common.Graph
 
 import scala.util.Try
 
 
-trait TriangulationAlgorithm extends FileHelper {
+trait TriangulationAlgorithm {
   val name: String
 
   protected def remap(g: Graph[Int]): Graph[Int] = {

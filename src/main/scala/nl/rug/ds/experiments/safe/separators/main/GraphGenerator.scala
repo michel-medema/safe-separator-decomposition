@@ -1,7 +1,7 @@
 package nl.rug.ds.experiments.safe.separators.main
 
 import com.typesafe.scalalogging.LazyLogging
-import nl.rug.ds.common.{FileHelper, Helper}
+import nl.rug.ds.common.Helper
 import nl.rug.ds.graph.common.{Graph, GraphConnectivity}
 import nl.rug.ds.graph.format.parser.{Pace, SeparatorFile}
 import nl.rug.ds.graph.generator.SafeSeparatorGraph
@@ -9,10 +9,10 @@ import nl.rug.ds.graph.generator.SafeSeparatorGraph
 import java.nio.file.{Path, Paths}
 import scala.util.{Failure, Success}
 
-object GraphGenerator extends LazyLogging with FileHelper {
+object GraphGenerator extends LazyLogging {
   // TODO: Make this an argument.
   // The absolute path of the directory in which the graphs should be stored.
-  private val outputPath: Path = Paths.get("C:\\Users\\P278366\\Downloads\\")
+  private val outputPath: Path = Paths.get("")
 
   private val combinations: List[(Int, Int, Int, Int, Int, Double)] = for (
     numSeparators <- List(1, 5, 10);
@@ -44,7 +44,7 @@ object GraphGenerator extends LazyLogging with FileHelper {
           case Failure(e: Throwable) =>
             logger.error(e.toString)
             e.printStackTrace()
-            System.exit(-1)
+            System.exit(1)
         }
 
         seps.foreach { (s: Set[Int]) =>
@@ -69,7 +69,7 @@ object GraphGenerator extends LazyLogging with FileHelper {
 
           if (!hasRequiredConnectivity) {
             logger.error(s"Separator vertices are not ${requiredConnectivity}-connected!")
-            System.exit(-1)
+            System.exit(1)
           }
         }
     }

@@ -1,0 +1,1 @@
+{"graph":"GTFS_VBB_EndeApr_Dez2016.zip_train+metro+tram_10","decompositionAlgorithm":"HeuristicDecomposition","triangulationAlgorithm":"MinFill","treeWidth":18,"executionTime":"1881ms","finished":true,"vertices":187,"edges":385}

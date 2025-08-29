@@ -1,0 +1,1 @@
+{"graph":"GTFS_VBB_EndeApr_Dez2016.zip_train+metro_15","decompositionAlgorithm":"HeuristicDecomposition","triangulationAlgorithm":"BZTreeWidth","treeWidth":14,"executionTime":"27891ms","finished":true,"vertices":124,"edges":250}

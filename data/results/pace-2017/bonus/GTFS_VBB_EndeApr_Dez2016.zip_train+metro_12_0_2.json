@@ -1,0 +1,1 @@
+{"graph":"GTFS_VBB_EndeApr_Dez2016.zip_train+metro_12","decompositionAlgorithm":"NoDecomposition","triangulationAlgorithm":"TamakiTreeWidth","treeWidth":11,"executionTime":"18665ms","finished":true,"vertices":103,"edges":212}
