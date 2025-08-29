@@ -50,7 +50,17 @@ WORKDIR /usr/local/src/BZTreewidth-bfbf736a98eea412c7ba2de4a21280816d9b8bbb
 # included.
 RUN mkdir -p bin
 RUN dmcs -optimize -define:SEQUENTIAL -out:bin/BZTreewidth-DP.exe BZTreewidth/*.cs && \
-    dmcs -optimize -define:SEQUENTIAL\;LIMIT_SEPARATOR -out:bin/BZTreewidth-DP-LS.exe BZTreewidth/*.cs
+    dmcs -optimize -define:SEQUENTIAL\;LIMIT_SEPARATOR -out:bin/BZTreewidth-DP-LS.exe BZTreewidth/*.cs && \
+    dmcs -optimize -out:bin/PARALLEL-BZTreewidth-DP.exe BZTreewidth/*.cs && \
+    dmcs -optimize -define:LIMIT_SEPARATOR -out:bin/PARALLEL-BZTreewidth-DP-LS.exe BZTreewidth/*.cs && \
+    dmcs -optimize -define:SEQUENTIAL\;USE_DFS -out:bin/BZTreewidth-DFS.exe BZTreewidth/*.cs && \
+    dmcs -optimize -define:SEQUENTIAL\;USE_DFS\;LIMIT_SEPARATOR -out:bin/BZTreewidth-DFS-LS.exe BZTreewidth/*.cs && \
+    dmcs -optimize -define:SEQUENTIAL\;USE_DFS\;LIMIT_SEPARATOR\;DFS_SIMPLICIALRULE -out:bin/BZTreewidth-DFS-SV.exe BZTreewidth/*.cs && \
+    dmcs -optimize -define:SEQUENTIAL\;USE_DFS\;LIMIT_SEPARATOR\;DFS_SIMPLICIALRULE\;DFS_MMW -out:bin/BZTreewidth-DFS-SV-MMW.exe BZTreewidth/*.cs && \
+    dmcs -optimize -define:SEQUENTIAL\;USE_DFS\;LIMIT_SEPARATOR\;DFS_SIMPLICIALRULE\;DFS_MMW_LIMITED -out:bin/BZTreewidth-DFS-SV-MMWLIMIT.exe BZTreewidth/*.cs && \
+    dmcs -optimize -define:SEQUENTIAL\;USE_DFS\;LIMIT_SEPARATOR\;DFS_SIMPLICIALRULE\;DFS_MMW\;DFS_EDGEADDITION\;DFS_ALMOSTSIMPLICIALRULE -out:bin/BZTreewidth-DFS-SV-ASV-EADD-MMW.exe BZTreewidth/*.cs && \
+    dmcs -optimize -define:SEQUENTIAL\;USE_DFS\;LIMIT_SEPARATOR\;DFS_SIMPLICIALRULE\;DFS_MMW\;DFS_ALMOSTSIMPLICIALRULE -out:bin/BZTreewidth-DFS-SV-ASV-MMW.exe BZTreewidth/*.cs && \
+    dmcs -optimize -define:SEQUENTIAL\;USE_DFS\;LIMIT_SEPARATOR\;DFS_SIMPLICIALRULE\;DFS_MMW_LIMITED\;DFS_ALMOSTSIMPLICIALRULE -out:bin/BZTreewidth-DFS-SV-ASV-MMWLIMIT.exe BZTreewidth/*.cs
 
 # -------------------------------------------
 

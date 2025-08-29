@@ -18,7 +18,7 @@ lazy val root = (project in file("."))
     ),
     assembly / mainClass := Some( "nl.rug.ds.experiments.safe.separators.main.Main" ),
     assembly / assemblyMergeStrategy := {
-      case PathList("META-INF", xs@_*) =>
+      case PathList("META-INF", xs @ _*) =>
         xs map {_.toLowerCase} match {
           case "services" :: xs => MergeStrategy.filterDistinctLines
           case _ => MergeStrategy.discard
