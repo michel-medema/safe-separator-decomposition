@@ -28,7 +28,7 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v6
         with:
-          build-args: GITHUB_TOKEN=${{secrets.PACKAGES_TOKEN}}
+          build-args: GITHUB_TOKEN=${{secrets.GITHUB_TOKEN}}
           push: true
           tags: ghcr.io/michel-medema/safe-separator-decomposition:latest
           cache-from: type=gha
